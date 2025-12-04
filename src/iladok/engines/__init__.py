@@ -1,5 +1,5 @@
-from .interface import ModelEngine
+from .interface import ModelInterface
 from .local_core import LocalCoreEngine
 from .remote_signal import RemoteSignalEngine
 
-__all__ = ["ModelEngine", "LocalCoreEngine", "RemoteSignalEngine"]
+__all__ = ["ModelInterface", "LocalCoreEngine", "RemoteSignalEngine"]
