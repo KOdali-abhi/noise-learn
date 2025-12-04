@@ -8,6 +8,7 @@ These tests verify that:
 """
 
 import pytest
+from unittest.mock import MagicMock
 
 
 class TestImports:
@@ -61,22 +62,25 @@ class TestNoiseRouterAPI:
     def test_register_vector_method_exists(self):
         """Test that register_vector instance method exists."""
         from iladok import NoiseRouter
-        # Create a minimal mock router to test instance methods
-        router = NoiseRouter(engine=None)
+        # Create router with a mock engine to avoid AttributeError
+        mock_engine = MagicMock()
+        router = NoiseRouter(engine=mock_engine)
         assert hasattr(router, 'register_vector')
         assert callable(getattr(router, 'register_vector'))
 
     def test_generate_method_exists(self):
         """Test that generate instance method exists."""
         from iladok import NoiseRouter
-        router = NoiseRouter(engine=None)
+        mock_engine = MagicMock()
+        router = NoiseRouter(engine=mock_engine)
         assert hasattr(router, 'generate')
         assert callable(getattr(router, 'generate'))
 
     def test_mechanism_check_method_exists(self):
         """Test that _mechanism_check private method exists."""
         from iladok import NoiseRouter
-        router = NoiseRouter(engine=None)
+        mock_engine = MagicMock()
+        router = NoiseRouter(engine=mock_engine)
         assert hasattr(router, '_mechanism_check')
         assert callable(getattr(router, '_mechanism_check'))
 
