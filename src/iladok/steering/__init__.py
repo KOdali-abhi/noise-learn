@@ -1,3 +1,3 @@
-from .optimization import train_lora_loop
+from .optimization import optimize_vector_loop
 
-__all__ = ["train_lora_loop"]
+__all__ = ["optimize_vector_loop"]
